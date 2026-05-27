@@ -16,10 +16,12 @@ fi
 
 echo ""
 echo "🚀 Subiendo juego a AWS S3..."
+
+# Nota: sin --acl public-read (los buckets S3 modernos no usan ACLs)
+# El acceso público se controla desde la política del bucket (setup-bucket.sh)
 aws s3 cp "$GAME_FILE" "s3://$S3_BUCKET/index.html" \
   --content-type "text/html" \
-  --cache-control "no-cache" \
-  --acl public-read
+  --cache-control "no-cache"
 
 echo ""
 echo "✅ ¡Juego desplegado!"
