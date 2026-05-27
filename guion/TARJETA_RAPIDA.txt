@@ -1,0 +1,67 @@
+╔══════════════════════════════════════════════════════════════╗
+║          TARJETA RÁPIDA — DEMO MARIO IA                      ║
+║          Imprime esta hoja y tenla a mano                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+FLUJO DE LA DEMO (total ~5 minutos)
+────────────────────────────────────
+[1] Abrir demo-selector/index.html en el navegador  (30s)
+[2] Público vota: personaje / enemigos / mundo / arma  (2min)
+[3] Ejecutar prompt en terminal (ver abajo)  (30s)
+[4] Claude genera el juego — narrar mientras esperas  (45s)
+[5] Abrir index.html y jugar en vivo  (30s)
+[6] Ejecutar deploy.sh para publicar en internet  (30s)
+[7] Mostrar URL — público escanea con celular  (30s)
+
+PROMPT MASTER (rellena los [ ] según el voto del público)
+────────────────────────────────────────────────────────────
+claude "Crea un juego tipo Mario Bros en un solo index.html autocontenido.
+Personaje principal: [PERSONAJE].
+Enemigos: [ENEMIGOS].
+Mundo: [MUNDO].
+Disparo: [ARMA].
+Controles: WASD/flechas, Espacio=saltar, Z=disparar.
+3 vidas, puntuación, game over, reinicio.
+Web Audio API para sonidos. Canvas 2D pixel art. Sin dependencias.
+Comentarios en español."
+
+OPCIONES DEL PÚBLICO
+────────────────────
+PERSONAJE:  Robot IA | Astronauta | Ninja | Dragón bebé
+ENEMIGOS:   Virus pixelados | Esqueletos pirata | Robots locos | Fantasmas neón
+MUNDO:      Selva tech | Ciudad espacial | Volcán de lava | Océano profundo
+ARMA:       Rayos láser | Bolas de fuego | Código binario | Estrellas ninja
+
+COMANDOS CLAVE
+──────────────
+Generar juego:   claude "[PROMPT MASTER]"
+Abrir juego:     open index.html
+Desplegar AWS:   ./aws/deploy.sh  (URL: http://BUCKET.s3-website-REGION.amazonaws.com)
+Modificar:       claude "Agrega [CARACTERÍSTICA] al juego"
+
+FRASES PARA LA PRESENTACIÓN
+─────────────────────────────
+Al inicio:
+  "Hoy ustedes van a diseñar un videojuego. La IA lo construye."
+
+Mientras genera:
+  "Está escribiendo el motor de física... las colisiones...
+   el render de los personajes... todo al mismo tiempo."
+
+Al abrir el juego:
+  "Un juego funcional. 60 segundos. Exactamente lo que pidieron."
+
+Al desplegarlo:
+  "Ahora cualquier persona en el mundo puede jugarlo."
+
+Al cerrar:
+  "En el programa aprenderán a CREAR esto — no solo a usarlo."
+
+SI ALGO FALLA
+──────────────
+Claude tarda mucho  →  usa el PROMPT MASTER simplificado de arriba
+El juego tiene bugs →  claude "Corrige los bugs del index.html generado"
+AWS falla           →  muestra el juego local (open index.html), igual impresiona
+Sin internet        →  el juego local en index.html funciona offline
+
+════════════════════════════════════════════════════════════════
